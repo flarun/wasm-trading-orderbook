@@ -1,6 +1,8 @@
 # wasm-trading-orderbook
 
-A zero-backend Level 2 Limit Order Book and market microstructure terminal built with Rust, WebAssembly, and `egui`. Streams live `@depth20@100ms` and `@aggTrade` feeds directly from Binance via WebSockets.
+![Wasm Trading Orderbook Preview](preview/preview.png)
+
+A client-side Level 2 Limit Order Book visualizer built with Rust, WebAssembly, and `egui`. It streams live market depth directly from Binance via WebSockets.
 
 ## Features
 

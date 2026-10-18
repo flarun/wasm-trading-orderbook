@@ -528,7 +528,7 @@ impl eframe::App for OrderbookApp {
         // --- LEFT PANEL: L2 Order Book Ladder ---
         egui::SidePanel::left("l2_ladder_panel")
             .resizable(false)
-            .exact_width(380.0)
+            .exact_width(420.0)
             .show(ctx, |ui| {
                 ui.add_space(4.0);
                 ui.horizontal(|ui| {
@@ -605,12 +605,13 @@ impl eframe::App for OrderbookApp {
         // --- RIGHT PANEL: Live Time & Sales Tape ---
         egui::SidePanel::right("tape_panel")
             .resizable(false)
-            .exact_width(300.0)
+            .exact_width(340.0)
             .show(ctx, |ui| {
                 ui.add_space(4.0);
                 ui.horizontal(|ui| {
                     ui.strong("TIME & SALES (LIVE TAPE)");
                     ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                        ui.add_space(20.0);
                         ui.monospace(
                             egui::RichText::new("TIME (UTC) | PRICE | SIZE")
                                 .size(11.0)
@@ -789,7 +790,7 @@ fn render_ladder_row(
 
     // 3. Columns: Price | Size | Cumulative Total
     ui.painter().text(
-        egui::pos2(rect.left() + 6.0, rect.top() + 2.0),
+        egui::pos2(rect.left() + 10.0, rect.top() + 2.0), // Shifted in from 6.0
         egui::Align2::LEFT_TOP,
         format!("{:.2}", price),
         egui::FontId::monospace(12.5),
@@ -803,7 +804,7 @@ fn render_ladder_row(
         egui::Color32::LIGHT_GRAY,
     );
     ui.painter().text(
-        egui::pos2(rect.right() - 6.0, rect.top() + 2.0),
+        egui::pos2(rect.right() - 14.0, rect.top() + 2.0), // Shifted in to prevent hugging the divider
         egui::Align2::RIGHT_TOP,
         format!("{:.3}", cum_qty),
         egui::FontId::monospace(12.0),
