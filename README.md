@@ -1,19 +1,22 @@
 # wasm-trading-orderbook
 
-A zero-backend, client-side Level 2 (L2) Limit Order Book visualizer built with Rust, WebAssembly, and `egui`.
+A client-side Level 2 Limit Order Book visualizer built with Rust, WebAssembly, and `egui`. It streams live market depth directly from Binance via WebSockets.
 
-Streams high-frequency market depth updates (100ms) directly from Binance via WebSockets, parses deltas in WebAssembly, and renders a live, hardware-accelerated order depth ladder at 60 FPS in the browser.
+## Prerequisites
 
-## Architecture
+You need Rust, the WebAssembly compiler target, and the Trunk bundler:
 
-* **Engine:** Pure Rust compiled to `wasm32-unknown-unknown`.
-* **Rendering:** Immediate-mode WebGL rendering via `eframe` / `egui`.
-* **Transport:** Non-blocking asynchronous WebSockets via `ewebsock` over browser-native socket APIs.
-* **State Management:** Bidirectional price-level aggregation with real-time volume depth bars and spread calculation.
+```bash
+rustup target add wasm32-unknown-unknown
+cargo install --locked trunk
+```
 
-## Quick Start
+## How to Run
 
-1. **Prerequisites:**
-   ```bash
-   rustup target add wasm32-unknown-unknown
-   cargo install --locked trunk
+Launch the local development server:
+
+```bash
+trunk serve
+```
+
+Open your browser to `http://127.0.0.1:8080`.
