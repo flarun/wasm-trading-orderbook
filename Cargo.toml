@@ -10,7 +10,7 @@ eframe = { version = "0.27.0", features = ["glow"] }
 log = "0.4"
 wasm-bindgen-futures = "0.4"
 
-# WebSockets (Cross-platform: works natively and in Wasm)
+# WebSockets
 ewebsock = "0.6.0"
 
 # JSON Parsing
@@ -19,7 +19,7 @@ serde_json = "1.0"
 
 # --- COMPILER OPTIMIZATIONS FOR WASM ---
 [profile.release]
-opt-level = 's'      # Optimize for binary size (crucial for web)
-lto = true           # Link-time optimization
-codegen-units = 1    # Slower compile, faster/smaller binary
-panic = 'abort'      # Remove panic unwinding to save size
+opt-level = 's'      
+lto = true           
+codegen-units = 1    
+panic = 'abort'
